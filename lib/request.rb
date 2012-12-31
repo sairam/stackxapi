@@ -43,6 +43,14 @@ module StackExchange
       attr_accessor :tags
     end
 
+    module Tagged
+      attr_accessor :tagged
+    end
+
+    module Ids
+      attr_accessor :ids
+    end
+
     module CommentSortable
       attr_accessor :sort
       # "sort votes, creation"

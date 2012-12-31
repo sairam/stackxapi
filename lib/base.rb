@@ -1,7 +1,7 @@
 module StackExchange
   class Base
     attr_reader :request_path, :result
-    attr_accessor :query
+    attr_accessor :key, :query
 
     include Logging
     # include Request::Site
@@ -23,6 +23,11 @@ module StackExchange
     #   from_date: Proc.new { (Date.current - 1.week) }
     #   to_date: Proc.new { Date.current.to_time }
     # }
+
+    begin
+      API_KEY = File.read('api_key.txt')
+    rescue
+    end
 
     def initialize(options = {})
       options.reverse_merge!(defaults)
@@ -55,7 +60,14 @@ module StackExchange
       max: :max,
       pagesize: :page_size,
       page: :page_no,
+      ids: :ids,
+      period: :period,
       inname: :filter,
+      tagged: :tagged,
+      tag: :tag,
+      tags: :tags,
+      ids: :ids,
+      key: :key,
       }
     end
 
@@ -99,7 +111,7 @@ module StackExchange
 
     def build_query
       self.query = {}
-      # binding.pry
+      binding.pry
       attribute_mapping.each do |k,v|
         next unless respond_to?(v)
         val = self.send(v)
@@ -112,6 +124,7 @@ module StackExchange
         site: 'stackoverflow',
         order: 'desc', # desc, asc
         page_size: 30, # default is 30 . max is 100
+        key: API_KEY
       }
     end
     def request

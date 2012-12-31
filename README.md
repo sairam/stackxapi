@@ -12,7 +12,6 @@
 /revisions/{ids}
 /search
 /suggested-edits
-/questions
 /users
 ```
 ### Network:
