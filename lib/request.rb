@@ -6,8 +6,8 @@ module StackExchange
       attr_accessor :from_date, :to_date, :since
     end
 
-    module Filter
-      attr_accessor :filter
+    module Inname
+      attr_accessor :inname
     end
 
     module Tags
@@ -49,6 +49,10 @@ module StackExchange
 
     module Ids
       attr_accessor :ids
+    end
+
+    module Filters
+      attr_accessor :filters
     end
 
     module CommentSortable

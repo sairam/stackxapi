@@ -1,6 +1,6 @@
 module StackExchange
 
-  # t = Tags.new({filter: 'ember.js'})
+  # t = Tags.new({inname: 'ember.js'})
   # t.first
   # tag_name = t.result.items[0]['count']
   class Tags::Tags < Tags
@@ -9,7 +9,7 @@ module StackExchange
     include Request::MinMax
     include Request::Orderable
     include Request::TagSortable
-    include Request::Filter
+    include Request::Inname
 
     def initialize(options={})
       @request_path = 'tags'

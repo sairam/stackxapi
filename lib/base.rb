@@ -1,7 +1,7 @@
 module StackExchange
   class Base
     attr_reader :request_path, :result
-    attr_accessor :key, :query
+    attr_accessor :key, :query, :filter
 
     include Logging
     # include Request::Site
@@ -62,7 +62,8 @@ module StackExchange
       page: :page_no,
       ids: :ids,
       period: :period,
-      inname: :filter,
+      inname: :inname,
+      filter: :filter,
       tagged: :tagged,
       tag: :tag,
       tags: :tags,
@@ -111,7 +112,6 @@ module StackExchange
 
     def build_query
       self.query = {}
-      binding.pry
       attribute_mapping.each do |k,v|
         next unless respond_to?(v)
         val = self.send(v)
