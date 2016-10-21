@@ -38,7 +38,7 @@ module StackExchange
 
     def set_attributes(options)
 
-      if options.key?(:since_weeks)
+      if options.key?(:since)
         options[:from_date] = Date.current - options.delete(:since)
         options[:to_date] = Date.current
       end

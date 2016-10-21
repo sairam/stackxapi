@@ -60,6 +60,11 @@ module StackExchange
       # "sort votes, creation"
     end
 
+    module QuestionSortable
+      attr_accessor :sort
+      # "sort activity, votes, creation, hot, week, month"
+    end
+
     module TagSortable
       attr_accessor :sort
       # "sort popular, activity, name"

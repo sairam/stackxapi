@@ -2,6 +2,7 @@ module StackExchange
 
   class Questions::Questions < Questions
 
+    include Request::QuestionSortable
     include Request::Tagged
 
     def initialize(options={})

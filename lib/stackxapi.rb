@@ -20,4 +20,4 @@ require 'privileges'
 require 'info'
 require 'tags'
 require 'questions'
-
+require 'filters'

@@ -6,7 +6,7 @@ module StackExchange
     include Request::MinMax
     include Request::Orderable
     include Request::TagSortable
-    include Request::Filter
+    include Request::Inname
 
     def initialize(options={})
       @request_path = 'tags/required'
